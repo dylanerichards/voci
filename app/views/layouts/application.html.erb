@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <title>L2P</title>
+  <body>
+    <div class="container">
+      <%= render "layouts/navbar" %>
+
+      <div id="header" class='pull-right'>
+        <% if signed_in? -%>
+          <%= button_to t('.sign_out'), sign_out_path, method: :delete %>
+        <% else -%>
+          <%= link_to t('.sign_in'), sign_in_path %>
+        <% end -%>
+      </div>
+
+      <%= yield %>
+
+    </div>
+  </body>
+</html>

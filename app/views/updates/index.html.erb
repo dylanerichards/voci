@@ -1,0 +1,13 @@
+<h1>Updates</h1>
+
+<%= link_to 'New Update', new_update_path %>
+
+<br />
+<br />
+
+<ul>
+  <% @updates.each do |update| %>
+    <li><%= update.created_at.to_date %> | <%= link_to update.title, update %></li>
+  <% end %>
+</ul>
+
