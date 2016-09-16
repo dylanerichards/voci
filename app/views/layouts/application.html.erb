@@ -5,13 +5,14 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tag %>
   </head>
+
   <title>Voci</title>
+
   <body>
     <div class="container">
       <%= render "layouts/navbar" %>
 
       <%= yield %>
-
     </div>
   </body>
 </html>
