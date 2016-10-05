@@ -33,6 +33,7 @@ class UpdatesController < ApplicationController
     respond_to do |format|
       if @update.save
 
+
         format.html { redirect_to @update, notice: 'Update was successfully created.' }
         format.json { render :show, status: :created, location: @update }
       else
@@ -67,13 +68,13 @@ class UpdatesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_update
-      @update = Update.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_update
+    @update = Update.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def update_params
-      params.require(:update).permit(:title, :body)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def update_params
+    params.require(:update).permit(:title, :body)
+  end
 end

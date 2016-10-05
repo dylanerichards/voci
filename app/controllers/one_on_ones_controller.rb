@@ -28,6 +28,18 @@ class OneOnOnesController < ApplicationController
 
     respond_to do |format|
       if @one_on_one.save
+
+        @twilio = Twilio::REST::Client.new
+
+        @twilio.messages.create(
+          from: '+12062020609',
+          to:   '+15169672755',
+          body: "#{@one_on_one.student} just scheduled a one-on-one. \n
+          http://www.nycda-voci.com/one_on_ones/#{@one_on_one.id}
+          "
+
+        )
+
         format.html { redirect_to @one_on_one, notice: 'One on one was successfully created.' }
         format.json { render :show, status: :created, location: @one_on_one }
       else
@@ -62,13 +74,13 @@ class OneOnOnesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_one_on_one
-      @one_on_one = OneOnOne.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_one_on_one
+    @one_on_one = OneOnOne.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def one_on_one_params
-      params.require(:one_on_one).permit(:student, :teacher, :topic, :time, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def one_on_one_params
+    params.require(:one_on_one).permit(:student, :teacher, :topic, :time, :description)
+  end
 end
