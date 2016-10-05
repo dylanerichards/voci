@@ -1,0 +1,36 @@
+<h1>Listing One on Ones</h1>
+
+<% if current_user %>
+  <table>
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Teacher</th>
+        <th>Topic</th>
+        <th>Time</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @one_on_ones.each do |one_on_one| %>
+        <tr>
+          <td><%= one_on_one.student %></td>
+          <td><%= one_on_one.teacher %></td>
+          <td><%= one_on_one.topic %></td>
+          <td><%= one_on_one.date %></td>
+          <td><%= one_on_one.description %></td>
+          <td><%= link_to 'Show', one_on_one %></td>
+          <td><%= link_to 'Edit', edit_one_on_one_path(one_on_one) %></td>
+          <td><%= link_to 'Destroy', one_on_one, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New One on one', new_one_on_one_path %>
+<% end %>
+

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @one_on_one.student %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @one_on_one.teacher %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @one_on_one.topic %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @one_on_one.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @one_on_one.description %>
+</p>
+
+<%= link_to 'Edit', edit_one_on_one_path(@one_on_one) %> |
+<%= link_to 'Back', one_on_ones_path %>

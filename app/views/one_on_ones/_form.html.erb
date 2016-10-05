@@ -1,0 +1,65 @@
+<%= form_for(@one_on_one) do |f| %>
+  <% if @one_on_one.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@one_on_one.errors.count, "error") %> prohibited this one_on_one from being saved:</h2>
+
+      <ul>
+        <% @one_on_one.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :student %><br>
+        <%= f.text_field :student, autofocus: true, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :teacher %><br>
+        <%= f.text_field :teacher, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :topic %><br>
+        <%= f.text_field :topic, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.label :date %><br>
+        <%= f.text_field :date, class: "form-control" %>
+      </div>
+    </div>
+
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :description, "What's going on?" %><br>
+        <%= f.text_area :description, class: "form-control", rows: 10 %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Go!", class: "btn btn-primary" %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+    </div>
+  </div>
+
+<% end %>
