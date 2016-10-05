@@ -34,7 +34,7 @@ class OneOnOnesController < ApplicationController
         @twilio.messages.create(
           from: '+12062020609',
           to:   '+15169672755',
-          body: "#{@one_on_one.student} just scheduled a one-on-one. \n
+          body: "#{@one_on_one.student} just scheduled a one-on-one.\n
           http://www.nycda-voci.com/one_on_ones/#{@one_on_one.id}
           "
 
