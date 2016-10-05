@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'clearance'
 gem 'bootstrap-wysihtml5-rails'
 gem 'slack-notifier'
+gem 'twilio-ruby'
 
 group :development do
   gem 'sqlite3'

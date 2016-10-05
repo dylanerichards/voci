@@ -24,6 +24,7 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
+    require 'twilio-ruby'
     require 'net/http'
     require 'json'
 
@@ -31,13 +32,6 @@ class UpdatesController < ApplicationController
 
     respond_to do |format|
       if @update.save
-        uri = URI.parse("https://hooks.slack.com/services/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")
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true
-        request = Net::HTTP::Post.new(uri)
-        request.add_field("Content-Type", "application/json")
-        request.body = { "text" => "New update submitted: <http://programmingsummit.herokuapp.com/updates/#{@update.id}>", "username" => "update-bot" }.to_json
-        res = http.request(request)
 
         format.html { redirect_to @update, notice: 'Update was successfully created.' }
         format.json { render :show, status: :created, location: @update }
