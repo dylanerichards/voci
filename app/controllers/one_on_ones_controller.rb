@@ -37,7 +37,6 @@ class OneOnOnesController < ApplicationController
           body: "#{@one_on_one.student} just scheduled a one-on-one.\n
           http://www.nycda-voci.com/one_on_ones/#{@one_on_one.id}
           "
-
         )
 
         format.html { redirect_to @one_on_one, notice: 'One on one was successfully created.' }
