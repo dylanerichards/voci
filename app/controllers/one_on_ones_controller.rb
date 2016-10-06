@@ -80,6 +80,6 @@ class OneOnOnesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def one_on_one_params
-    params.require(:one_on_one).permit(:student, :teacher, :topic, :time, :description)
+    params.require(:one_on_one).permit(:student, :teacher, :topic, :date, :description)
   end
 end
